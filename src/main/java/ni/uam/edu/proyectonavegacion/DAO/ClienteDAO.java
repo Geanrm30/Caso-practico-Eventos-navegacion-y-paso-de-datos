@@ -6,10 +6,21 @@ import ni.uam.edu.proyectonavegacion.modelos.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDAO  implements CRUD<Cliente> {
-    List<Cliente> listaClientes;
+public class ClienteDAO implements CRUD<Cliente> {
 
-    public ClienteDAO(){listaClientes = new ArrayList<>();}
+    private static ClienteDAO instancia;
+    private final List<Cliente> listaClientes;
+
+    private ClienteDAO() {
+        listaClientes = new ArrayList<>();
+    }
+
+    public static ClienteDAO getInstancia() {
+        if (instancia == null) {
+            instancia = new ClienteDAO();
+        }
+        return instancia;
+    }
 
     @Override
     public void agregar(Cliente entidad) {
@@ -25,6 +36,4 @@ public class ClienteDAO  implements CRUD<Cliente> {
     public void eliminar(Cliente entidad) {
         listaClientes.remove(entidad);
     }
-
 }
-

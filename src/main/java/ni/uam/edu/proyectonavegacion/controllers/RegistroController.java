@@ -23,7 +23,7 @@ public class RegistroController {
     @FXML private CheckBox chkServiciosInteres;
     @FXML private ImageView imgFoto;
 
-    private ClienteDAO clienteDAO = new ClienteDAO();
+    private ClienteDAO clienteDAO = ClienteDAO.getInstancia();
 
     @FXML
     public void initialize() {
