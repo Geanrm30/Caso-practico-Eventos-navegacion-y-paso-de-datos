@@ -37,20 +37,16 @@ public class RegistroController {
         if (!validarCampos()) {
             return;
         }
-        String codigo = (txtCodigo != null) ? txtCodigo.getText() : "";
-        String nombres = (txtNombres != null) ? txtNombres.getText() : "";
-        String apellidos = (txtApellidos != null) ? txtApellidos.getText() : "";
-        String tipoCliente = (cmbTipoCliente != null) ? cmbTipoCliente.getValue() : "";
-        String ciudad = (txtCiudad != null) ? txtCiudad.getText() : "";
-        LocalDate fechaNacimiento = (dpFechaNacimiento != null) ? dpFechaNacimiento.getValue() : null;
+        String codigo = txtCodigo.getText();
+        String nombres = txtNombres.getText();
+        String apellidos = txtApellidos.getText();
+        String tipoCliente = cmbTipoCliente.getValue();
+        String ciudad = txtCiudad.getText();
+        LocalDate fechaNacimiento = dpFechaNacimiento.getValue();
+        RadioButton tipoSolicitud = (RadioButton) tgTipoSolicitud.getSelectedToggle();
         
-        RadioButton tipoSolicitud = null;
-        if (tgTipoSolicitud != null && tgTipoSolicitud.getSelectedToggle() != null) {
-            tipoSolicitud = (RadioButton) tgTipoSolicitud.getSelectedToggle();
-        }
-        
-        boolean serviciosInteres = (chkServiciosInteres != null) && chkServiciosInteres.isSelected();
-        Image foto = (imgFoto != null) ? imgFoto.getImage() : null;
+        boolean serviciosInteres = chkServiciosInteres.isSelected();
+        Image foto = imagenTemporal;
 
         Cliente nuevoCliente = new Cliente(codigo, nombres, apellidos, tipoCliente, ciudad, fechaNacimiento, tipoSolicitud, serviciosInteres, foto);
         
@@ -127,6 +123,12 @@ public class RegistroController {
         if (dpFechaNacimiento == null || dpFechaNacimiento.getValue() == null) {
             mostrarAlerta(Alert.AlertType.ERROR, "Campo Vacío", "Debe seleccionar la fecha de nacimiento.");
             return false;
+        } else {
+            java.time.Period edad = java.time.Period.between(dpFechaNacimiento.getValue(), LocalDate.now());
+            if (edad.getYears() < 18) {
+                mostrarAlerta(Alert.AlertType.ERROR, "Edad Inválida", "El cliente debe ser mayor de 18 años.");
+                return false;
+            }
         }
 
         if (tgTipoSolicitud == null || tgTipoSolicitud.getSelectedToggle() == null) {
@@ -134,7 +136,7 @@ public class RegistroController {
             return false;
         }
 
-        if(imgFoto == null) {
+        if(imagenTemporal == null) {
             mostrarAlerta(Alert.AlertType.ERROR, "Campo vacío", "Debe de seleccionar una foto del cliente");
             return false;
         }
@@ -147,5 +149,11 @@ public class RegistroController {
         alerta.setTitle(titulo);
         alerta.setContentText(mensaje);
         alerta.showAndWait();
+    }
+
+    @FXML
+    private void volverAlMenu(ActionEvent event) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) txtCodigo.getScene().getWindow();
+        stage.close();
     }
 }
