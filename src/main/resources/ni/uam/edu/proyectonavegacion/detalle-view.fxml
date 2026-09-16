@@ -84,11 +84,6 @@
     <bottom>
         <HBox alignment="CENTER" style="-fx-background-color: #e2e8f0; -fx-padding: 10 15;"
               BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" onAction="#cerrarVentana"
-                        style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"
-                        text="Cerrar"/>
-            </children>
         </HBox>
     </bottom>
 

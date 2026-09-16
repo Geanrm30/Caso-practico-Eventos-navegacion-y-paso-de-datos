@@ -80,7 +80,6 @@ public class RegistroController {
         }
     }
 
-
     @FXML
     public void limpiarFormulario() {
         if (txtCodigo != null) txtCodigo.clear();

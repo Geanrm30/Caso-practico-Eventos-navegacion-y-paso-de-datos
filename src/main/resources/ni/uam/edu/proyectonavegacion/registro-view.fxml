@@ -34,8 +34,8 @@
                     <menus>
                         <Menu text="Archivo">
                             <items>
-                                <MenuItem text="Nuevo registro"/>
-                                <MenuItem text="Guardar"/>
+                                <MenuItem text="Nuevo registro" onAction="#limpiarFormulario"/>
+                                <MenuItem text="Guardar" onAction="#guardarCliente"/>
                             </items>
                         </Menu>
                         <Menu text="Ayuda">
