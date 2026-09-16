@@ -63,6 +63,26 @@ public class ConsultaController {
                 lblEstado.setText("Seleccione un cliente antes de hacer doble clic.");
                 return;
             }
+            abrirDetalle(seleccionado);
+        }
+    }
+
+    private void abrirDetalle(Cliente cliente) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    RegistroApplication.class.getResource("detalle-view.fxml"));
+            Parent root = loader.load();
+
+            DetalleController controller = loader.getController();
+            controller.cargarCliente(cliente);
+
+            Stage stage = new Stage();
+            stage.setTitle("Detalle del Cliente");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("No se pudo abrir la ventana de detalle: " + e.getMessage());
         }
     }
 
