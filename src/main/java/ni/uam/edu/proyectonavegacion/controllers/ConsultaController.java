@@ -76,10 +76,11 @@ public class ConsultaController {
             DetalleController controller = loader.getController();
             controller.cargarCliente(cliente);
 
-            Stage stage = new Stage();
-            stage.setTitle("Detalle del Cliente");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Dialog<Void> dialog = new Dialog<>();
+            dialog.setTitle("Detalle del Cliente");
+            dialog.getDialogPane().setContent(root);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+            dialog.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
             mostrarAlerta("No se pudo abrir la ventana de detalle: " + e.getMessage());

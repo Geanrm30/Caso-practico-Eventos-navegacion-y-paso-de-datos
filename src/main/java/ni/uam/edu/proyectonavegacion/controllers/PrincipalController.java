@@ -11,7 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
+import javafx.stage.DirectoryChooser;
+import java.io.File;
+
+import ni.uam.edu.proyectonavegacion.DAO.ClienteDAO;
 import ni.uam.edu.proyectonavegacion.RegistroApplication;
+import ni.uam.edu.proyectonavegacion.util.ClienteExportador;
 
 import java.io.IOException;
 
@@ -63,6 +68,34 @@ public class PrincipalController {
             "• Conexión a datos: Lista.", 
             Alert.AlertType.INFORMATION);
     }
+    @FXML
+    public void exportarRespaldo(ActionEvent event) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Seleccionar carpeta de respaldo");
+
+        File carpetaSeleccionada = directoryChooser.showDialog(null);
+
+        if (carpetaSeleccionada == null) {
+            mostrarAlerta("Respaldo", "No se seleccionó ninguna carpeta.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        try {
+            File archivo = ClienteExportador.exportarACsv(
+                    ClienteDAO.getInstancia().obtenerRegistro(), carpetaSeleccionada);
+
+            mostrarAlerta("Respaldo Exitoso",
+                    "Se exportaron " + ClienteDAO.getInstancia().obtenerRegistro().size() +
+                            " cliente(s) a:\n" + archivo.getAbsolutePath(),
+                    Alert.AlertType.INFORMATION);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo generar el respaldo: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+
 
 
     @FXML

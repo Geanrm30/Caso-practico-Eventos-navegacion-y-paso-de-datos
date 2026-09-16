@@ -32,6 +32,8 @@
                                 <MenuItem onAction="#abrirRegistro" text="Registro de Clientes"/>
                                 <MenuItem onAction="#abrirConsulta" text="Consulta de Clientes"/>
                                 <SeparatorMenuItem/>
+                                <MenuItem onAction="#exportarRespaldo" text="Exportar respaldo..."/>
+                                <SeparatorMenuItem/>
                                 <MenuItem onAction="#salir" text="Salir"/>
                             </items>
                         </Menu>

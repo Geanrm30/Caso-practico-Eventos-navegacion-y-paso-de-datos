@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.scene.input.KeyCode;
 import ni.uam.edu.proyectonavegacion.modelos.Cliente;
 
 public class DetalleController {
@@ -38,6 +39,16 @@ public class DetalleController {
         if (cliente.getFoto() != null) {
             imgFoto.setImage(cliente.getFoto());
         }
+
+        lblCodigo.sceneProperty().addListener((obs, escenaVieja, escenaNueva) -> {
+            if (escenaNueva != null) {
+                escenaNueva.setOnKeyPressed(event -> {
+                    if (event.getCode() == KeyCode.ESCAPE) {
+                        cerrarVentana();
+                    }
+                });
+            }
+        });
     }
 
     @FXML
