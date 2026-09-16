@@ -16,7 +16,7 @@
               prefWidth="290.0" spacing="18.0"
               style="-fx-background-color: #006e7a;">
             <padding>
-                <Insets bottom="38.0" left="36.0" right="36.0" top="38.0" />
+                <Insets bottom="38.0" left="36.0" right="36.0" top="38.0"/>
             </padding>
 
             <StackPane maxHeight="104.0" maxWidth="104.0"
@@ -25,14 +25,14 @@
                 <ImageView fitHeight="82.0" fitWidth="105.0"
                            preserveRatio="true" StackPane.alignment="CENTER">
                     <image>
-                        <Image url="@uam.png" />
+                        <Image url="@uam.png"/>
                     </image>
                 </ImageView>
                 <opaqueInsets>
-                    <Insets />
+                    <Insets/>
                 </opaqueInsets>
                 <VBox.margin>
-                    <Insets />
+                    <Insets/>
                 </VBox.margin>
             </StackPane>
 
@@ -40,11 +40,11 @@
                    text="Sistema de registro y consulta de clientes"
                    textAlignment="CENTER" wrapText="true">
                 <font>
-                    <Font name="System Bold" size="13.0" />
+                    <Font name="System Bold" size="13.0"/>
                 </font>
             </Label>
 
-            <Region prefHeight="18.0" />
+            <Region prefHeight="18.0"/>
         </VBox>
     </left>
 
@@ -52,47 +52,47 @@
         <VBox alignment="CENTER_LEFT" spacing="11.0"
               style="-fx-background-color: white;">
             <padding>
-                <Insets bottom="42.0" left="54.0" right="54.0" top="42.0" />
+                <Insets bottom="42.0" left="54.0" right="54.0" top="42.0"/>
             </padding>
 
             <Label style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #007d89;"
-                   text="INICIO DE SESIÓN" />
+                   text="INICIO DE SESIÓN"/>
 
             <Label style="-fx-font-size: 27px; -fx-font-weight: bold; -fx-text-fill: #193642;"
-                   text="Bienvenido de nuevo" wrapText="true" />
+                   text="Bienvenido de nuevo" wrapText="true"/>
 
             <Label style="-fx-font-size: 13px; -fx-text-fill: #637b82;"
-                   text="Ingresá tus credenciales para continuar." wrapText="true" />
+                   text="Ingresá tus credenciales para continuar." wrapText="true"/>
 
-            <Region prefHeight="10.0" />
+            <Region prefHeight="10.0"/>
 
             <Label style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #25434b;"
-                   text="Usuario" />
+                   text="Usuario"/>
 
             <TextField fx:id="txtUsuario" prefHeight="42.0"
                        promptText="Usuario"
-                       style="-fx-background-color: #f5f9fa; -fx-background-radius: 9; -fx-border-color: #d5e3e6; -fx-border-radius: 9; -fx-font-size: 14px; -fx-padding: 0 13; -fx-focus-color: #007d89; -fx-faint-focus-color: transparent;" />
+                       style="-fx-background-color: #f5f9fa; -fx-background-radius: 9; -fx-border-color: #d5e3e6; -fx-border-radius: 9; -fx-font-size: 14px; -fx-padding: 0 13; -fx-focus-color: #007d89; -fx-faint-focus-color: transparent;"/>
 
             <Label style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #25434b;"
-                   text="Contraseña" />
+                   text="Contraseña"/>
 
             <PasswordField fx:id="txtClave" prefHeight="42.0"
                            promptText="Contraseña"
-                           style="-fx-background-color: #f5f9fa; -fx-background-radius: 9; -fx-border-color: #d5e3e6; -fx-border-radius: 9; -fx-font-size: 14px; -fx-padding: 0 13; -fx-focus-color: #007d89; -fx-faint-focus-color: transparent;" />
+                           style="-fx-background-color: #f5f9fa; -fx-background-radius: 9; -fx-border-color: #d5e3e6; -fx-border-radius: 9; -fx-font-size: 14px; -fx-padding: 0 13; -fx-focus-color: #007d89; -fx-faint-focus-color: transparent;"/>
 
             <Label fx:id="lblMensaje" minHeight="22.0"
                    style="-fx-font-size: 12px; -fx-font-weight: bold;"
-                   textFill="#b42318" />
+                   textFill="#b42318"/>
 
             <HBox alignment="CENTER_LEFT" spacing="12.0">
                 <Button fx:id="confirmarBoton" defaultButton="true"
                         onAction="#btnConfirmar" prefHeight="42.0"
                         style="-fx-background-color: #007d89; -fx-background-radius: 9; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: white; -fx-cursor: hand;"
-                        text="Iniciar sesión" />
+                        text="Iniciar sesión"/>
 
                 <Button onAction="#btnSalir" prefHeight="42.0"
                         style="-fx-background-color: white; -fx-background-radius: 9; -fx-border-color: #c8dadd; -fx-border-radius: 9; -fx-font-size: 13px; -fx-text-fill: #25434b; -fx-cursor: hand;"
-                        text="Salir" />
+                        text="Salir"/>
             </HBox>
         </VBox>
     </center>
